@@ -1,3 +1,7 @@
+body {
+    overflow: hidden;
+}
+
 #display {
     position: absolute;
     top: 0;
@@ -65,4 +69,13 @@
 #lock {
     grid-column: 1;
     grid-row: 5;
+}
+
+#mini {
+    position: absolute;
+    border: 5px white solid;
+}
+
+.hidden {
+    display: none;
 }
