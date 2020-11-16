@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="display"></canvas>
+    <div id="controls">
+        <button class="move" id="move-left">&lt;</button>
+        <button class="move" id="move-up">^</button>
+        <button class="move" id="move-down">v</button>
+        <button class="move" id="move-right">&gt;</button>
+        <button class="move" id="zoom-in">+</button>
+        <button class="move" id="zoom-out">-</button>
+        <input type="number" id="iterations" value="500" step="100" min="0" max="1000000">
+        <input type="number" id="fifty" value="50" step="10" min="0" >
+        <input type="checkbox" id="lock">
+        <!-- <div id="pos"></div> -->
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
