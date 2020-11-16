@@ -21,20 +21,23 @@ const fragment = glsl`
     }
 
     void main() {
+        #define JSCALE 30.
+
         vec2 z = u_scale * (gl_FragCoord.xy + u_offset);
-        vec2 z0 = z;
+        vec2 c = floor(z * JSCALE) / JSCALE;
+        z = fract(z * JSCALE) * 4. - 2.;
 
         float iters = -1.;
         for (int i = 0; i < MAX_ITERS; i++) {
             if (i >= u_iterations) {
                 break;
             }
-            if (z.x*z.x + z.y*z.y >= 4.) {
+            if (((z.x - c.x)*(z.x - c.x) + (z.y - c.y)*(z.y - c.y)) / JSCALE >= 4.) {
                 iters = float(i);
                 break;
             }
             zsquare(z);
-            z += z0;
+            z += c;
         }
 
         if (iters == -1.) {
