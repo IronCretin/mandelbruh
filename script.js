@@ -8,13 +8,13 @@ const vertex = glsl`
     }
 `;
 const fragment = glsl`
-    precision mediump float;
+    precision highp float;
     uniform vec2 u_offset;
     uniform float u_scale;
     uniform int u_iterations;
     uniform float u_fifty;
 
-    #define MAX_ITERS 1000000
+    #define MAX_ITERS 100000
 
     void zsquare(inout vec2 z) {
         z = vec2(z.x * z.x - z.y * z.y, 2. * z.x * z.y);
@@ -29,7 +29,7 @@ const fragment = glsl`
             if (i >= u_iterations) {
                 break;
             }
-            if (length(z) >= 2.) {
+            if (z.x*z.x + z.y*z.y >= 4.) {
                 iters = float(i);
                 break;
             }
